@@ -9,10 +9,12 @@ class MapClass {
         this.zoom = zoom;
         this.ajaxURL = ajaxURL;
         this.map = L.map(mapID).setView([this.latView, this.lngView], this.zoom); // initialisation de la map
-        this.tilelayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicGFibG8tYiIsImEiOiJjanJtOGNhdDMwZmsyNDRvOTE2NGh6OWVpIn0.F2dzzHhRYuKt10Vp9I_hTg', {
+        this.tilelayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGFibG8tYiIsImEiOiJjanJtOGNhdDMwZmsyNDRvOTE2NGh6OWVpIn0.F2dzzHhRYuKt10Vp9I_hTg', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>', // création du design de la map
+            tileSize: 512,
             maxZoom: 18,
-            id: 'mapbox.streets',
+            zoomOffset: -1,
+            id: 'mapbox/streets-v11',
             accessToken: 'pk.eyJ1IjoicGFibG8tYiIsImEiOiJjanJtOGNhdDMwZmsyNDRvOTE2NGh6OWVpIn0.F2dzzHhRYuKt10Vp9I_hTg'
         });
         this.tilelayer.addTo(this.map); // ajout du design à la map
